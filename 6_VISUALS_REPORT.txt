@@ -1,0 +1,1268 @@
+Note: This is running notes only, more detailed information in the PDF documents.
+
+Refer to PDF 7, 8, 9 for Built-In visuals, Custom visuals, R, Python visuals.
+=======================================================================================
+
+Visual: Displays data or data with graphical presentation
+
+There are two types of visuals
+
+1st type:
+	No Data Display visual [Buttons, lines, images, ovals etc.]
+2nd type:
+	Data taking visuals
+	This is again two types
+
+	a) Only Data
+
+	1. Single value : Card
+	2.Multiple values: Multirowcard, Table, Matrix
+
+	b) Data + Graphical
+
+	KPI
+	Gauge 
+	Chart
+	Map
+	etc.
+
+Note: These all support Normal fields and DAX measures / calculations
+======================================================================================
+General Flow:
+
+Get Data--> Transform Data [Mashup, R, Python] --> Model Data[ Relationships, DAX measures / columns / tables creation]---> Visualize Data-->Publish
+======================================================================================
+
+=======================================================================================
+A report preperation in real-time
+=======================================================================================
+a) Customer will give you BSD [Business Specification Document], Technical Layout / Report Layout, Data to be placed on the report
+  [ SQL PROCEDURES /VIEWS, MDX /DAX QUERIES OR ANY OTHER]
+
+b) Report Background color / Image , Report Height and width
+c) ALL the required visuals and their height and width
+d) Theme of the report [common colors, sizes, alignments across pages]
+e) Creating required measures [ a)Parent measures b) Dependent measures c) Sub Dependent measures]
+d) Using measures on the visuals
+e) Verifying the performance of each visual
+g) Filters, Slicers, Book Marks, Sync Slicers, Drill through options etc.
+h) Browse / navigate report
+
+Publish Report...
+
+
+/* The below content detailed information available in Power BI Desktop PDFs 7, 8, 9 */
+=======================================================================
+Built-in visuals Vs Custom visuals
+=======================================================================
+Built-in visuals
+
+	Microsoft given visuals
+	Less risk
+	Limited visuals [sufficient]
+
+Custom visuals
+
+	Other organizations given / User created
+	More risk
+	More visuals
+
+	Some frequently used custom visuals [heatmap, hierarchy slicer, bullet chart, scrollbar, chiclet slicer etc.]
+
+	You can take these a) By download from store [.pbiviz] b) connecting to appstore / marketplace
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+When do we go for custom visual?
+
+If the required visual not in the list of built-in visuals, then we go for custom visuals, search, read descrption and see the
+rating, finally add it.
+=======================================================================================
+A page creation with standard settings and using Non Field Visuals
+=======================================================================================
+Practical Today:
+
+a) Take a new page and specify the below
+	1. Page Information
+	2. Page Background
+	3. Filter Pane settings
+	4. WallPaper
+	etc.
+b) Use Image, TextBox, Buttons with actions on the page
+c) Use custom visual like Scrollbar (use courname in the category section and discount fee in the measurable section)
+
+===========================================
+Buttons [Actionable visuals] 
+===========================================
+
+What is button?
+
+It is a visual which perform action.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How many actions available?
+
+a) Back b) URL c) Bookmark d) Page Navigation e) Drill through 
+
+Back: Takes to the previous page
+
+URL: Opens the specified URL
+
+Bookmark: Opens the specified bookmark
+
+Page Navigation: Opens the specified page [navigating to the specified page]
+
+Drill Through: Navigating to the drill through page
+
+etc.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How do you take a line horizontal?
+
+mention 90 degrees [rotation]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+How do you show a shape visual and background visual at a time?
+
+Shape visual (such as Oval)--> Transperancy--> Reduce it / increase it
+
+
+=======================================================================================
+Multiple pages creation, Single Field Data Display Visuals [Slicers, Cards etc.] and Multi Field Data Display Visuals Usage
+=======================================================================================
+
+What is slicer?
+
+Which is a "manual filter visual."
+
+Dynamic filter visual.
+--------------------------------------------------------------------------------------------------------
+What are the options it has?
+
+Options indicate the way it appears.
+
+a) List  [All data types]
+b) Dropdown [All data types]
+c) Between and  [Numeric cols]
+d) Less than or equals [Numeric cols]
+e) Greater than or equals [Numeric cols]
+--------------------------------------------------------------------------------------------------------
+How do you keep slicer values horizontal like buttons?
+
+Under general section
+
+Orientation: Horizontal
+--------------------------------------------------------------------------------------------------------
+How do you control slicing values like single section, multi section and Select ALL?
+
+a) Take List to the slicer
+b) Go to Format Section, Selection Control
+--------------------------------------------------------------------------------------------------------
+
+What is sync slicing?
+
+Keeping a common slicer across all pages and slice in one page will effect in another page.
+Real-time mostly helpful to maintain a common data observation across all pages.
+
+View menu--> Sync slicin, choose the slicer and specify show / hide or Refresh options.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Slicer Practical:
+
+a) Drag and Drop Slicer on Locations Page, specify year column from DimDate, 
+	Observe all the options (list, dropdown, between,Greater Than Or Equals, Less Than Or Equals)
+
+	Note: Many options because of numeric column
+
+b) Drag and Drop Slicer on Locations Page, specify monthname column from DimDate, 
+	Observe all the options (list, dropdown)
+
+	Note: Less options because of String column
+
+c) Drag and Drop Slicer on Locations Page, specify year column from DimDate, 
+	Go to Format Section, General Section:  Orientation: Horizontal
+			  Section Controls: Choose the options required [Single Select, Multi Select, Select ALL]
+
+	Note: Now it apperas like Buttons
+
+d) Go to View Menu-->Sync Slicing, also choose the slicer visibility and slicing effect pages by tick marking the heck boxes
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+=======================================================================================
+Custom Slicers [Hierarchy Slicer, Chiclet Slicer etc...
+=======================================================================================
+The built slicer is not suitable for your requirement, then go to AppSource and Search with slicer, take the respective slicer after reading
+description and features.
+
+Built In Slicer: 
+
+		Single Filed Visual
+
+Hierarchy Slicer: 
+
+		Takes hierarchy or multiple columns in the slicer. 
+
+		Allow us to drill down and drill up operations.
+
+Chiclet Slicer:
+		Show the values in the form of buttons.
+		Also support images on the buttons.
+		Can be arranged in Table Format / Matrix Format.
+
+		Each value display item is called chiclet.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Practical:
+
+a) Go to Appsource, add hierarchy slicer and specify a hierarchy to the slicer (Ex: Location Hierarchy, Date Hierarchy)
+b) Go to Appsource, add Chiclet slicer and specify a Location name to the slicer 
+
+======================================================
+Card Visual:  [Single Data Field Visual]
+======================================================
+Single Line: Single Data Field Visual
+
+Single value display visual [ no graphical]
+
+
+It shows either measure value / constant value / field which has single value
+
+
+--------------------------------------------------------------------------------------------------------------
+Date and Time functions logical explanation:
+
+Current Date: 2020-12-01
+
+SamePeriodLastYear=2019-12-01  --Date context
+SamePeriodLastYear=2019-12 --Month context
+SamePeriodLastYear=2019--Year context
+
+Previous Year=2019 complete data
+Previous Month=11 th month complete data
+Previous Quarter=Last Quarter Complete Data
+
+Next Year=2021 complete data
+Next Month=1st month complete data
+Next Quarter=Next Quarter Complete Data
+
+Growth=Current-Last
+Growth Percenatage= ((Current-Last) / Last ) * 100
+
+
+YearToDate =Starting of year to till this date [mostly 1st Jan to ...]
+QuarterToDate=Starting of Quarter to till this date 
+MonthToDate=Starting of month to till this date 
+
+You have business open date(shop opened on) : 2020-01-01
+Your business at shop started on : 2020-01-03
+You closed the shop on : 2020-11-19
+You have business till : 2020-10-20
+
+First Date: 2020-01-01
+FirstNonBlank: 2020-01-03
+LastDate: 2020-11-19
+LastNOnBlank=2020-10-20
+
+
+Measure: Single value return area after performing operations.
+
+
+
+
+Practical:  Create the below measures and place on cards [ One Measure on One Card]
+
+1)Measure [Total Discount Fee Value]:
+		Modeling Menu--> New measure, write the below expression in the formula bar and then  click Save (tick mark)
+
+				Sum of DF=sum(FactPayments[Discount_Fee])
+
+		Drag and drop this measure on one card
+
+
+2) Measure [Last Year Discount Fee Value]:
+
+		Previous Year Value=Calculate([Sum of DF], previousyear(DimDate[Date]))
+
+		Drag and drop this measure on one card
+
+3) Measure [Two previous years back Discount Fee Value]:
+
+		Two Previous Years Back=Calculate([Sum of DF], ParallelPeriod(DimDate[Date],-2, Year))
+
+		Drag and drop this measure on one card
+
+4) Measure [Same Period Last Year Discount Fee Value]:
+
+		Same Period Last Year=Calculate([Sum of DF], SamePeriodLastYear(DimDate[Date]))
+		Drag and drop this measure on one card
+
+5) Measure [Growth]:
+
+		Growth=[Sum Of DF]/[Previous Year Value]
+		Drag and drop this measure on one card
+
+6) Measure [Growth Percentage]:
+
+		Growth Percenatge=([Growth]/[Previous Year Value]) * 100
+
+7) Measure [Year To Date Value]:
+
+		Year To Date DF=TotalYTD([Sum Of DF], DimDate[Date]))
+
+
+8) Measure [Month To Date Value]:
+
+		Month To Date DF=TotalMTD([Sum Of DF], DimDate[Date]))
+		Drag and drop this measure on one card
+
+8) Measure [First Business Date]:
+
+		First Business Date=FirstNonBlank(DimDate[Date]), [Sum Of DF])
+
+		Drag and drop this measure on one card
+
+10) Measure [Last Business Date]:
+
+		Last Business Date=LastNonBlank(DimDate[Date]), [Sum Of DF])
+
+		Drag and drop this measure on one card
+
+======================================================
+Multirow card: [Multi Data Field Visual]
+======================================================
+Single Line: Multiple values / cards as a row, extension to card visual] : Multiple data fields visual
+
+Multiple rows displayed.
+Rows can be seperated.
+Useful to create listing of rows.
+
+Practice:
+
+a) Take multi row card and place LocID, Sum of DF, Last Year DF, Growth, Growth Percenatage etc.
+b) Go to format section and work on Card settings (bar, frame) and other settings.
+ 
+======================================================
+Table visual : [Multi Data Field Visual]
+======================================================
+Single Line: Columnar visual [multiple columns visual]
+
+Columnar visual [column by column data displayed]
+Bottom rows contain aggregated data
+More rows to show this is helpful
+No drill down and drill up
+
+Practice:
+
+a) Take Table visual and place LocID, ModeID,Sum of DF, Last Year DF, Growth, Growth Percenatage etc.
+b) Go to format [ Lock Aspect, Conditional Formatting, Header or Value or Total formating] etc.
+
+Note: Refer to PDF for all these formatting options
+
+Lock Aspect: Resizing visual [On: Height and width propeortinal resize, OFF: Any way resizing]
+Conditional Format: Based on the condition / rule, background color / fore ground color / font etc... will be changed.
+
+========================================================================================
+What is the difference between Multirow card and Table?
+========================================================================================
+No seperate totals row in multi row card
+
+No separation of field values in multi row card for operations [different colors based on value in a field, not possible]
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How many types of column formating we have?
+
+ Two types
+
+a) Static format
+
+b) Conditional format [here, you put a condition*]
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+I want complete row a color based on one field conditional formating? ****
+
+Take that single field format condition to all fields and apply.
+
+Multi columns same conditional formula= row formula
+
+Practical:
+
+Go to each field, conditional format, Advanced controls, Business logic: Rule, apply rules
+
+What are the beautiful options help us to create a report with custom zise and scrolling options?
+
+a) Page Settings: Page Size
+
+b) View Menu-->Page View Options
+
+========================================================================================
+Matrix Visual [Data Display visual]
+========================================================================================
+Single Line: Cross tab reporting visual [Rows vs columns data display]
+
+Less categories to show [table visual for more rows to show]
+Compare rows against columns [table visual does not support]
+Supports row totals and column totals [table level only column  totals]
+Supports drill down and drill up operations [ table visual does not support]
+
+========================================================================================
+Filters:
+========================================================================================
+This is static filter applied to the data rows.
+
+There are four types of fiters
+
+a) Visual filter: Only the visual filtered
+
+	It has 3 filter types
+		a) Basic : Tick mark the required
+		b) Advanced: You use conditional operators (IN, NOT IN, Equals, Less than etc.)
+		c) Top N: Top values in the visual based on a field / expression
+
+b) Page filter: All visuals in the page filtered
+
+	It has 2 filter types
+		a) Basic : Tick mark the required
+		b) Advanced: You use conditional operators (IN, NOT IN, Equals, Less than etc.)
+		
+c) Report Filter: All pages in the report fitered
+
+	It has 2 filter types
+		a) Basic : Tick mark the required
+		b) Advanced: You use conditional operators (IN, NOT IN, Equals, Less than etc.)
+		
+
+d) Drill through filter: 
+	It is of two types
+	a) Single report drill through
+
+		One page to another page [drill through specified page] navigation in the same report
+
+	b) Multi report drill through [cross report drill through]
+
+		One page one report to another page [drill through specified page] in another report navigation
+========================================================================================
+What is the default visual system will take when we use drill through filter option?
+
+Back button
+------------------------------------------------------------------------------------------------------------------------------------------
+What are the differences between slicers and filters?
+
+Slicer: 
+
+1.Visual
+2.Has value selection only
+3.You can restrict other visuals not to change based on slicer
+4.Requried pages in report can support common slicing 
+
+
+
+Filter:
+
+1.Not a visual
+2.Data display based on value selection / condition / top n
+3.Filter perform static operation [no restriction support]
+4. Either visual / page / report only possible [required pages filterig not possible {sync}, manually you have to do]
+
+Drill through cross filter...
+
+Moving from one report to another report.
+=========================================================================================
+Book Mark:
+=========================================================================================
+
+What is bookmark? how is it helpful for us?
+
+A particular visual / page state capturig is called book mark
+
+Help us
+
+a) Customers to see their interested areas / visuals in a report as a single view
+b) While creating a dashboard to go to the required pages [bookmark actions]
+
+Practical: 
+
+View Menu--> Bookmark, 
+
+Go to page / visual, click add at bookmark pane level, now it will take that visual / page bookmark
+------------------------------------------------------------------------------------------------------------------------------------------
+How many types of bookmarks available?
+
+Initially only one type, i.e Report Level Bookmarks [what developers create]
+
+Now, we have two types of  bookmarks.
+
+a) Report Bookmarks [Legacy]
+
+b) Personal bookmarks [ at Service] : This is added while browsing user to create his own perception / bookmark
+------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Bookmark action?
+
+Going  to the respective bookmark page is called as bookmark action.
+
+Practical:
+
+Go to button / image / or any visual, Action ON, Type: Bookmark, Choose the bookmark from the dropdown
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Practice:
+
+a) Create book mark (BM_Locations) for locations page
+
+b) Create book mark (BM_Modes) for modes page
+
+c) Create book mark (BM_Courses) for courses page
+
+d) Go to Home Page, take 3 images and map the actions (format section of image) to the above book marks
+
+e) Control and click on each image and monitor travelling to the page, take a back button in each page to back to the home page.
+
+==========================================================================
+Visual Interactions [Format Menu-->Edit Interactions]
+==========================================================================
+Controling the visuals for filter / highlight / none options.
+
+Example: I need one visual for filter, one visual for highlight, and some visuals no change for a slicing or browsing of data
+
+Simply go to format menu, click edit interactions, and then choose the above options for each visual.
+
+Interview Questions:
+------------------------------------------------------------------------------------------------
+Q: I am browsing one visual, there should not be any change in another visual
+
+A: Format Menu-->Edit Interactions, Specify NONE  option at that visual
+------------------------------------------------------------------------------------------------
+Q:  I want cross highlight than cross filter
+
+A:  Format Menu-->Edit Interactions, Specify CROSS Highlight  option at that visual
+
+------------------------------------------------------------------------------------------------
+For which visual we will get only Filter and None options?
+
+	Data visuals [Multirow card, Matrix etc.]
+
+------------------------------------------------------------------------------------------------
+For which visual we will get only Filter, Drill through and  None options?
+
+	Graphical visuals [charts, maps etc.]
+
+
+
+=======================================================================================
+Selecting required visuals
+=======================================================================================
+You dont' want all the visuals on the report, to hide or select required visuals the below option is helpful.
+
+View Menu-->Selection, specify show or hide by clicking the icons
+
+======================================================================================
+Working on Theme
+=======================================================================================
+Theme is template of common fonts, sizes, colors etc. in a report.
+
+This helps to maintain uniform and branding colors across all pages
+
+Ex: HDFC [Blue and White], ICICI [Brown and White]
+
+In Power BI, we do in two ways
+
+a) Built-in theme selection
+
+b) Create a Json [Java Structured Object Notation File] and Use it 
+
+Note: Use theme file in the lab backup
+
+=========================================================================================
+Locking objects
+========================================================================================
+Once the objects locked, it will not allow to change the positions.
+
+
+=========================================================================================
+Snap to Grid
+========================================================================================
+Automatically arrange visuals on the grid
+
+=========================================================================================
+Gridlines
+========================================================================================
+It will show you grid lines so that manually we need to arrange visuals.
+
+
+=========================================================================================
+Page view options
+=========================================================================================
+Along with Page Size, these options help you better viewing of report.
+
+a) Fit to page: Exact page size fit ["no scrollbars"]
+b) Fit to width: It will take "vertical scrollbar" to fit to the width
+c) Fit to Actual: It will take "vertical and horizontal scrollbar" to fit to actual size
+
+Note: Combination of Page Settings [height and width] and Page View options [above] will give you better page and visuals in real-time
+
+=========================================================================================
+Performance Analyzer
+=========================================================================================
+This helps to identify 
+
+a) Visuals running time [ms: milli seconds]
+b) The DAX query visual is using
+
+Note: These details help us to monitor the health of visuals and to improve performance by optimizing
+         the DAX query or Visual fields usage.
+
+Practice:
+
+1.View menu-->Performance Analyzer
+
+2.Start Recording
+
+3. Click Refresh Visuals, now the visuals refreshed and statistics will be shown
+
+4. To copy the DAX, click Copy DAX and paste in a Notepad / Wordpad 
+
+-------------------------------------------------------------------------------------------------
+How do we improve performance of visuals?
+
+1. Run performance analyzer, look at the duration, if it is considered wrong or more, then
+	a) Verify the fields used on the visual and optimize
+	b) Verify the DAX Query what system generating and take action accordingly
+
+==============================================================================
+
+Format Menu and Data / Drill menu
+==============================================================================
+What are the additional options [Menu] Power BI Desktop will show you at the time of highlighting a visual?
+
+a) Format
+b) Data / Drill
+
+Format Menu Options
+------------------------------------------------------------------------------------------------------------------------------
+a) Edit interactions
+b) Selection
+c) Drill down
+d) Sent / Bring forward or backward etc..
+
+===========================================
+Data / Drill Options
+============================================
+
+a) Visual Table :  Visual data displayed as table
+
+Practice:
+
+	Go to chart, click this option and see the result.
+-----------------------------------------------------------------------------------------------------------------------------
+b)Data Point Table
+
+When you  click a value, the respective table rows it will show you.
+[if it is an aggregate value, the rows participated (full) will be displayed]
+
+Ex:
+On the matrix visual, click on the value at value section
+
+-----------------------------------------------------------------------------------------------------------------------------
+c) Apply Drill down
+
+d) Apply Drill through
+
+*************************************************************************************************************************************************
+Menu options completed and Data Display Visuals completed
+*************************************************************************************************************************************************
+
+=============================================================================
+Graphical visuals [Simple Graphical Visuals (KPI and Gauge)]
+=============================================================================
+a)Simple grahical items [suitable to use on Dashboards and Score Cards]
+
+
+KPI:
+	KPI: Key Performance Indicator
+
+	This visual helps to show "current value against target" in graphical format with requried colors.
+
+	For customers it gives "immediate impression about data / business values understanding".
+
+	Multiple KPIs on dashboard gives more understandng of decision making.
+	
+	Ex: 
+		Purchases Vs Sales KPI
+	     	Demand Vs Supply  KPI
+
+Practice:
+
+	Indicator: Sum (Discount_Fee) --current value
+	Target value: Sum(Actual Fee) --Goal
+
+	Category: LocationID  --LocationID current vs target
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Gauge:
+
+	Little heavier than KPI because KPI info + Minimum value+ Max value also displayed.
+
+	Simply in a range where "exactly the current value is", "what is the initial value" and "what is the max value" etc.  it answers.
+
+	We have radial gauge with 180 degress.
+
+	Real-world: Bike, Car etc. speedo meters in gauge format
+
+Practice:
+	Create two measures
+
+	Min Value: 100000
+	Max Value: 1500000
+
+	Take gauge and arrange like below
+
+	Value: Discount Fee --current value
+	Minimum value: min value measure  --starting business value
+	Maximum value: max value measure --maximum business reachable value
+	Target value: Actual Fee --Goal value 
+
+	Tooltip: Taxamount -additional fields display
+
+
+	Go to format section: work on Label, Callout, Value section etc.
+  	
+=============================================================================
+Graphical visuals [Multi field or more descriptive (Charts, Maps)]
+=============================================================================
+b) Multi field graphical visuals
+	
+	Charts
+	Maps
+
+	=======================================================================
+	Maps
+	========================================================================
+
+	They generate "geo spatial maps".
+	They help us to see the locations and their business values in graphical format [bullets, region filling or any]
+	
+	Maps require either of the inputs
+
+	a) Location names [if you know the names]
+
+		Ex: State name, City name etc. you know
+		
+	b) Longitude and Lattitude 
+
+		 a) Specific longitude and lattitute 
+		b) If you don't know the location names
+		Ex:
+		You are under sea, no locations under sea, in this situation longitude and lattitude are helpful etc..
+
+
+	There are four map visuals
+
+	a) Map [ Bubble map]
+
+	b) Filled Map
+
+	c) Shape Map
+
+	d) ArcGis Map
+
+	Note: There are many custom maps for different operations
+
+	==============
+	a) Map [Bubble Map]
+	==============
+	1) Displays map by showing bubbles
+	2) The sizes of bubble can be controlled by a measure /field [big bubbles for more value, small bubble for less value]
+	3) Also you can take ToolTip to show the business and other important values
+	4) You can browse map and locations, respectively shows the values in other visuals
+
+	Note: It shows bing map
+
+	5) Default is bubbles, when we turn on Heat Map, that option will disappear[bubble size].
+
+	Note: Heat map custom visual is used by many organizations, so Microsoft added another control to the 
+		existing map, i.e heat map adding
+
+	Practice 1:
+
+	Location: LocationName
+	Size: Discount_Fee
+	Tool Tip: Actual_Fee, Tax_Amount
+
+	Practice 2:
+
+	Location: State
+	Legend: Locationname
+	Size: Discount_Fee
+	Tool Tip: Actual_Fee, Tax_Amount
+
+
+	================
+	b) Map [Filled Area Map]
+	================
+	1) Displays map by filling the region with the specified color
+	2) Also you can take ToolTip to show the business and other important values
+	3) You can browse map and locations, respectively shows the values in other visuals
+
+	Note: It shows bing map
+
+	
+	Practice 1:
+
+	Location: LocationName
+	Tool Tip: Actual_Fee, Tax_Amount
+
+	Practice 2:
+
+	Location: State
+	Legend: Locationname
+	Tool Tip: Actual_Fee, Tax_Amount
+
+	
+	======================================================================
+	c) Shape Map [Better visual for "own shapes" and "better color and other formations" than previous two visuals]
+	======================================================================
+	1) This was under preview till 2018 end. It added in 2019.
+	2) It will help us to have our own shape map (rather than bing) and own color formatting. 
+	3) By default few countries shapes it provides support, if your country is not in the list, then go for
+	    your own shape file creation (which is in Json format) and added to shape map
+
+	4) It is not a Bing Map
+	
+	Note:You can download shape files from internet (verify at lab backup for India shape files)
+
+	Practice:
+
+	Location: Districts [drag and drop from DimLocation table]
+	Legend: LocationName
+	Color Saturation: Discount Fee
+	Tool Tip: Actual_Fee, Tax_Amount
+
+	Formatting:
+
+	Data Colors work on it
+	Shape:  Click Add Map--> browse to India Districts in the Lab Back Up Shape Map Folder
+
+	Zoom: Specify AutoZoom, Manual Zoom, and other zoom options
+	
+
+	======================================================================
+	c) ARcGis Visual [It has many visual formatting, colors, shapes etc. features than above all]
+	======================================================================
+
+	1) Microsoft joined with ESRI [Enviromental System Research Institute] organization to get 
+	   ArcGis maps [SSRS supporting this map]
+
+	    Many companies asked Microsoft a Powerful mapping, i.e ArcGis
+	    ArcGis added recently.
+
+	2) It has many layers, many options, many controls, many ways of display etc.
+	3) One of the complex map and more detailed map in the mapping visuals.
+	
+	Note: Use the "Retail Analysis Sample PBIX New.pbix" in Lab Back Up [ShapeMap_India_Files]
+
+	Practice:
+
+	Open the PBIX, grag and drop ARCGis visual on any page
+	Location: City
+	Size: Last Year Sales
+	Color: Total Sales
+	Tool Tip: Margin, Two Years Back Sales
+	
+	Play with the left hand side panel each and every option
+
+	I used
+	a) Location
+	b) Size 
+	c) Color
+	d) Time
+
+	e) Layer Change
+	f) Drive Time
+	g) Instead of bubbles you can diamond or star icons 
+	h) You can add Infographics and Demographics (you see and modify) etc.
+
+====================================================================================
+Charts:  [Comparing, Composition, Relationship and Distribution]
+====================================================================================
+         Design Reason:  Basically a visual with graphical presentation for "textual Vs numerical" evaluation
+
+         Charts majorly for  a) Composition b) Comparison c) Distribution   d) Relationship 
+
+         Requirement:
+
+                           Minimum one textual column [parent and child only, parent can have drill down levels of text] and one 
+                           measurable column is required.
+
+                           Always "first data field is parent" and "second data field is child [sub category field]"
+
+  Types of charts:
+
+               We have different types of charts for different purposes
+              ***************************************************************************
+                a) Rounded charts : [ Shape in rounded format]
+      
+                           1. 100% consideration of all slices [More value big slice, less value small slice]
+                           2. Easy understanding for less categories[ 5 to 6 categories appears good]
+                           3. Also help us for comparing the slice values
+                           
+                           Example: Pie, Donut (hole with size / has inner radius) etc...
+
+                           Purpose:                    a) Composition b) Comparison           
+
+                           Requirement:                  One Textual (can have sub textual) and One measurable
+
+
+	Practice:
+
+		Legend: Year	[Category]
+		Details:Locationname [ Sub Category]
+		Values: Discount Fee
+		Tool tip: Actual Fee, Tax Amount
+
+		Format: Data Colors, Legend, Inner Radius 
+
+	Inner Radius: zero : Pie Chart
+	Inner Radius: >0 : Donut chart / Donought Chart
+
+                ***************************************************************************
+
+                b) Rectangle charts : [ Shape in rectangle format]
+
+                           1.Rectangle portion of areas [More value big rectangle portion, less value less rectangle portion]
+                           2. Less categories  
+                           3. Also help us for comparing and distribution along with composition
+                           
+                           Ex: TreeMap
+
+                           Purpose:  a) Composition b) Comparison c) Distribution
+
+                           Requirement: One Textual (can have sub textual) and One measurable
+		
+		Practice:
+
+		Group: Year	[Category]
+		Details:Locationname [ Sub Category]
+		Values: Discount Fee
+		Tool tip: Actual Fee, Tax Amount
+
+		Format: Data Colors, Legend, Inner Radius 
+
+
+            ***************************************************************************
+            
+                c) Bars : [Shape in Rectangle bars]
+
+                               Purpose: [a) Composition b) Comparison c) Distribution ]
+
+                               Requirement: One Textual (can have sub textual) and One measurable
+                               
+                               Bar Charts [multiple items comparison]:  
+			       			       	
+			 Comparing  and distribution (row, column, clustered) and composition (100% stacked)
+			       			       
+			       
+			  a) Column bar ( more categories show against less aggregate values ) 
+			       		       		       
+			  b) Row bar (less categories and more aggregate  values)
+			              
+			  c) Stacked (distributed):  Distribution and Comparing
+			                  
+			 d) Clustered (individual items show in the main group) : For comparing
+			                  
+			 e) 100% Stacked: Require sub textual column to see stacked information, displays all bar sizes same.
+			       Distribution, comparing and composition
+			       
+			Note:			       
+			                    Require one sub textual column to see stacked / clustered information. 
+			                    Displays sub textual bars in different sizes
+			       
+			Practical:
+			       	
+			1)Take any chart, Axis (one textual column: Parent), Legend (another textual column: Child)
+			       	   Value(measure)  Tooltip (additional measures / fieleds to show)
+			       
+			       Note: The measures may be straight measures or semi additive or non additive or fully additive measure
+			       
+			                 Ex: Total Discount Fee, Avg Discount Fee, Last Year Discount Fee, Growth, Growth Percentage etc...
+			       
+			Practice:
+
+			Aix: Year	[Category]
+			
+			Legend:Locationname [ Sub Category]
+			Values: Discount Fee
+			Tool tip: Actual Fee, Tax Amount
+
+			Format: Data Colors, Legend, Data Labels, Plot Area, X-Axis, Y-Axis etc.
+
+
+***************************************************************************
+			       	
+Charts Drill down: 
+			       			       
+			       
+	a)Only Row Drill Down (column drill down not availbale like matrix) and AXIS section take drill down field
+	b) Legend section does not support drill down columns,
+	c) Axis section support multiple levels of drill down. Means multiple fields you can take.
+			       
+  ***************************************************************************			        
+ Chart Additional Properties and Practice
+			        
+	1)To show value on bars, go to formation and specify Data Labels ON, specify the area where you want to show
+	2) To Control X and  Y Axis formations, go to Formation Section.
+			       
+ ***************************************************************************
+Chart Faqs
+			       
+	Which bar charts support comparing, distributing and composition (100%)?
+			       
+	100% Stacked Bar Chart.
+***************************************************************************		       		       
+	d) Lines: To compare "over a period of time" or "category based" comarison for a "single item" 
+
+                                Purpose:  a) Comparison 
+                                	b) Trend Analysis
+                                Ex: 
+                                	1) Year wise discount fee growth change
+                                	2) Individual cricketer score in the last 10 overs
+                                	3) What is the bat speed in the last 5 overs
+                                	4) Sensex rating for reliance petroleum in the last 4 months
+                                	
+		Practice:
+
+			Aix: Year	[Category]
+			
+			Legend:Locationname [ Sub Category]
+			Values: Discount Fee
+			Tool tip: Actual Fee, Tax Amount
+
+                                Requirement Reason: One Textual (recommended) and One measurable
+
+  ***************************************************************************	
+h) Area : Showing area  [lines area will filled]
+
+	Purpose:  a) Distribution b) Comparison 
+
+                Requirement Reason: One Textual (recommended) and One measurable
+		Practice:
+
+			Aix: Year	[Category]
+			
+			Legend:Locationname [ Sub Category]
+			Values: Discount Fee
+			Tool tip: Actual Fee, Tax Amount
+***************************************************************************	
+ i) Ribbon: Data in Ribbon format  
+
+		Purpose:  b) Comparison 
+
+                                Requirement Reason: One Textual (recommended) and One measurable
+
+		Note: When you take sub textual column, then only it shows proper ribbon with distributed data
+		
+***************************************************************************	
+
+f)  Water Fall : Positive and Negative values, up and down values etc  
+                
+                                Purpose:  b) Comparison 
+
+                                Requirement Reason: One Textual (recommended) and One measurable
+
+		Practice:
+
+		a) Get Data from Database / Excel , Payments flow table
+		b) Arrange Like below
+
+			Category
+				
+                                		Month
+
+
+			Y-Axis
+
+				PaymentFlow
+
+			Breakdown
+
+				Year
+
+
+	How to analyze?
+
+	Bigger Red Bar for Huge loss and Small Red bar for less loss
+	Bigger Green Bar for Huge Profit and Small Green bar for less profit
+
+
+ ***************************************************************************	
+
+g)  Funnel / Pyramid:  [Want to show in rectangle cylinders]
+               
+               			1. Cylinder format and displaying highest values to lowest in different sizes
+               			2. Displays current value, Current value percentage in the previous value and first value
+
+                             Purpose:  b) Comparison 
+
+                                Requirement Reason: One Textual (recommended) and One measurable
+
+***************************************************************************	
+
+ j) Scatter chart: [To provide relationship between multiple catgories]
+                 
+                 1.Bubbles distribution / scattering values  
+		2. Bubble size controlled by size section
+		3. We have play axis to show the business values by playing the respective axis
+
+		Purpose: b) Comparison c) Distribution   d) Relationship
+
+                    Requirement : 
+                    Multiple axis (X-Axis, Y-Axis, Play-Axis) and multiple values required. 
+                    Means minimum two  measures (X-Axis, Y-Axis) in two Axis (Play Axis--Optional) and Textual section (parent or parent and child)
+
+***************************************************************************	
+
+ k) Mixed charts:  Line / stacked / clustered etc...mixed   
+
+		                 Purpose:  b) Comparison [Line]  b) Distribution [stacked] 
+
+                                Requirement Reason: 
+                                
+                                One Textual (recommended) and One measurable  for stacked and another  measure  for Line
+
+***************************************************************************	
+l) Third party charts available: 
+                  
+                  Heat Map, Bubble Chart, Histogram chart etc...
+
+
+***************************************************************************	
+          
+      	Which situation we go for Line, Bar and Pie charts?
+
+       One item comparison (looks like trend analysis) over a period of time/category ---> Line
+
+       Multiple items comparison over a period of time / category--> Bar
+
+        Multiple items share / composition display---> Pie / Donut
+
+	***************************************************************************	
+	When do we go for row and column / row charts?
+
+         When height is more and more  categories to show --> Row bar chart
+
+          When width is more and more categories to show--> Column bar chart
+
+	***************************************************************************	
+
+	When do we go for Funnel chart?
+
+         When you want to compare the business of other items based on first item and previous item, then funnel is suitable
+	Also suitable to show business measures sizes in cylinder fashion.
+	
+	***************************************************************************	
+
+	For more information, refer to the Python and R Visuals PDF
+***************************************************************************	
+
+
+
+Bullet Chart
+
+
+
+a) It is advanced then KPI and Gauge and has multi functionality
+
+
+
+   Bubble Chart:
+
+
+
+    KPI (current value against goal) +
+
+     Gauge (current vs goal, min and max) +
+
+      Categories + Background rating
+
+    (needs improvement, satisfactory, good, very good)
+
+
+
+
+
+  The below items required
+
+a) Current Value b) Goal value c) Categories
+
+d) Needs improvement e) Satisfactory f) Good
+
+g) Very Good h)Min value i) Max Value
+
+
+R Visual
+
+
+
+a) Uses R-Lang code [statistical language code]
+
+b) If you want to construct your own visual using R-code, this is required
+
+c) To use this we need to have R knowledge.
+
+d) This lang contain libraries, libraries contain classes, and classes contain methods...
+
+====================================================================================
+R and Python in Power BI
+====================================================================================
+We have these languages in two places
+
+a) Power Query: 
+		a)Here to extract, transform with custom rules and protocols 
+		b) If the given transforms not sufficient, you want to perform more statistical and data science related calculations
+			then R (statistical lang) and Python (general purpose very powerful lang) are used.
+
+b) Power View level:
+
+	        If the existing visuals not suffcient and you want to generate custom visuals using R and Python, then use R, Python options.
+
+=============
+Pre-Requisite
+==============
+
+a) Install R / Python (or Anaconda) software [mandatory], add the path in the environment variables [optional]
+b) Download required Librarires or Packages, Classes and Methods.
+c)  Ensure those environmental paths specified in the Power BI Desktop, File Menu->Options
+d) Take R ot Python visual on the report view, write the code in code editor, click run to generate the visual with data.
+
+
+===========
+Python Visual
+=============
+a) Uses Python Lang code [General purpose language code]
+
+b) If you want to construct your own visual using Python code, this is required
+
+c) To use this we need to have Python knowledge.
+
+d) This lang contain libraries, libraries contain classes, and classes contain methods...
+
+
+
+Note: We should install respective software and place / map in the environment variable settings
+
+   [ Power BI Desktop--> File Menu-->Options and Settings]
+
+
+
+Simple Steps to implement R and Python visual code
+
+
+
+a) Install R / Python software, map to environment variables[Power BI Desktop--> File Menu-->Options and Settings]
+
+b) Drag and drop R / Python visual
+
+c) Specify a field
+
+d) Write the code and click Run
+
+
+
+
+
