@@ -401,6 +401,31 @@ Supports row totals and column totals [table level only column  totals]
 Supports drill down and drill up operations [ table visual does not support]
 
 ========================================================================================
+Faqs:
+
+a) I want to show 200 records, which visual is required?
+Table
+b) I want to show country and state wise discount fee value?
+
+Country and state come under same table, so create hierarchy and use it at table.
+
+c) I want to show country and mode wise discount fee value?
+
+Country and Mode are two different entities, so prefer matrix
+
+d) I want to show growth percentage value?
+
+Card
+
+e) I want to show for each location current DF, last DF, Growth and Growth Percentage?
+
+1. Multirow is good if you don't need totals and column value controlling
+
+2. Table also good [it support totals and column value controlling]
+
+
+
+========================================================================================
 Filters:
 ========================================================================================
 This is static filter applied to the data rows.
@@ -413,6 +438,8 @@ a) Visual filter: Only the visual filtered
 		a) Basic : Tick mark the required
 		b) Advanced: You use conditional operators (IN, NOT IN, Equals, Less than etc.)
 		c) Top N: Top values in the visual based on a field / expression
+			We can display "top" or "bottom" values.
+
 
 b) Page filter: All visuals in the page filtered
 
@@ -477,7 +504,7 @@ b) While creating a dashboard to go to the required pages [bookmark actions]
 
 Practical: 
 
-View Menu--> Bookmark, 
+View Menu--> Bookmark
 
 Go to page / visual, click add at bookmark pane level, now it will take that visual / page bookmark
 ------------------------------------------------------------------------------------------------------------------------------------------
