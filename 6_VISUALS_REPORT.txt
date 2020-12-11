@@ -841,6 +841,8 @@ b) Multi field graphical visuals
 	Legend: Locationname
 	Tool Tip: Actual_Fee, Tax_Amount
 
+
+	If I don't find 
 	
 	======================================================================
 	c) Shape Map [Better visual for "own shapes" and "better color and other formations" than previous two visuals]
@@ -904,6 +906,29 @@ b) Multi field graphical visuals
 	f) Drive Time
 	g) Instead of bubbles you can diamond or star icons 
 	h) You can add Infographics and Demographics (you see and modify) etc.
+
+=======================================================================================
+Third Party Map: Heat Map
+=======================================================================================
+Most of the companies using available maps, few companies using Heat Map.
+We can turn on Heat Map at Bubble Map (normal map) or else you can import Heat Map from App Source.
+
+HeatMap will show various colors and buring icon based on the indicator value.
+
+Basically Density you want to show on a map where it has many data points.
+
+Practical:
+
+a) Get from APP Source
+
+b) Location ID: 
+
+		Drag and drop location name from DimLocation
+c) Value
+
+		Mention Discount Fee
+
+Note: More discount fee area thick color, medium discount fee area medium color and less discount fee area light color.
 
 ====================================================================================
 Charts:  [Comparing, Composition, Relationship and Distribution]
@@ -1186,20 +1211,11 @@ l) Third party charts available:
 
 	For more information, refer to the Python and R Visuals PDF
 ***************************************************************************	
-
-
-
 Bullet Chart
-
-
-
+***************************************************************************
 a) It is advanced then KPI and Gauge and has multi functionality
 
-
-
    Bubble Chart:
-
-
 
     KPI (current value against goal) +
 
@@ -1209,10 +1225,6 @@ a) It is advanced then KPI and Gauge and has multi functionality
 
     (needs improvement, satisfactory, good, very good)
 
-
-
-
-
   The below items required
 
 a) Current Value b) Goal value c) Categories
@@ -1221,6 +1233,24 @@ d) Needs improvement e) Satisfactory f) Good
 
 g) Very Good h)Min value i) Max Value
 
+Practical:
+
+Current Value: Discount_Fee
+Goal Value: Actual_Fee
+
+Minimum: 100000
+Max Value: 1500000
+
+Satisfactory: 250000
+
+Good: 50000
+
+Very good: 700000
+
+Category: Locations
+
+
+========================================================================================
 
 R Visual
 
@@ -1253,9 +1283,9 @@ Pre-Requisite
 ==============
 
 a) Install R / Python (or Anaconda) software [mandatory], add the path in the environment variables [optional]
-b) Download required Librarires or Packages, Classes and Methods.
+b) Download required Libraries or Packages, Classes and Methods.
 c)  Ensure those environmental paths specified in the Power BI Desktop, File Menu->Options
-d) Take R ot Python visual on the report view, write the code in code editor, click run to generate the visual with data.
+d) Take R or Python visual on the report view, write the code in code editor, click run to generate the visual with data.
 
 
 ===========
