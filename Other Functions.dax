@@ -1,0 +1,77 @@
+﻿/* Sequence of values starting from 1 and ending at 10 */
+Evaluate
+(
+GENERATESERIES(1,10)
+)
+
+/* Sequence of values starting from 10 and ending at 50 by incrementing 5 */
+Evaluate
+(
+GENERATESERIES(10,50,5)
+)
+
+
+/* Intitute and mode wise total discount fee */
+evaluate
+(
+GROUPBY(FactPayments,FactPayments[InstituteID],FactPayments[ModeID],
+
+"Total Fee",SUMx(currentgroup(),FactPayments[Discount_Fee]))
+
+)
+
+/* Finding the maximum value in each group created in the above formula */
+
+DEFINE
+VAR DiscountFeeLocationMode =
+GROUPBY (
+FactPayments,
+DimLocation[Locationname],
+DimCourseMode[ModeID],
+"Total Discount Fee", SUMX( CURRENTGROUP(), FactPayments[Discount_Fee])
+)
+
+Evaluate GROUPBY (
+DiscountFeeLocationMode,
+DimLocation[Locationname],
+"Max Sales", MAXX( CURRENTGROUP(), [Total Discount Fee])
+)
+
+/* Summarize columns example */
+Evaluate
+(
+SUMMARIZECOLUMNS(FactPayments[InstituteID],FactPayments[ModeID],FactPayments,"Total",sum(FactPayments[Discount_Fee]))
+)
+
+/* Evaluating Rollupaddissubtotal to show locationid and grandtotalrow */
+evaluate
+(
+SUMMARIZECOLUMNS
+	(
+      		ROLLUPADDISSUBTOTAL('FactPayments'[LocationID], "IsGrandTotalRowTotal"),
+      		"SumDiscount_Fee", CALCULATE(SUM('FactPayments'[Discount_Fee]))
+   	 )
+)
+
+
+
+
+EVALUATE
+  TOPN(
+   	 502,
+    	SUMMARIZECOLUMNS
+	(
+      		ROLLUPADDISSUBTOTAL('FactPayments'[LocationID], "IsGrandTotalRowTotal"),
+      		"SumDiscount_Fee", CALCULATE(SUM('FactPayments'[Discount_Fee]))
+   	 ),
+    	[IsGrandTotalRowTotal],
+   	 0,
+    	'FactPayments'[LocationID],
+    	1
+  )
+
+ORDER BY
+  [IsGrandTotalRowTotal] DESC, 'FactPayments'[LocationID]
+
+
+

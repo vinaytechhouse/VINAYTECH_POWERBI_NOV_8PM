@@ -1,0 +1,54 @@
+﻿EVALUATE
+(
+
+ROW
+(
+"Code of char", UNICODE("a"),
+
+"Char for code",UNICHAR(65),
+
+"left data", left("vinaykumar",3),
+
+"right data", right("vinaykumar",4),
+
+"trim data", trim("       vinay kumar       "),
+
+"replace data", REPLACE("vinaykumar",3,2,"NA"),
+
+"replace all places",SUBSTITUTE("vinay kumar","a","AAA"),
+
+"string as value", value("123"),
+
+"case sensitive search",find("na","VinayKumar"),
+
+"case insensitive search",search("NA","VinayKumar"),
+
+"format with month name", format(now(),"YYYY MMMM DDD"),--MM, MMM, MMMM, DD, DDD, DDDD,YY, YYYY
+
+"format with month short name", format(now(),"MMM, DD, YYYY"),
+
+"lower case data", lower("VINAY KUMAR"),
+
+"upper case data", upper("vinay kumar"),
+
+"repeting 3 times", rept("vinay",3),
+
+"concatinating without delimiter", CONCATENATE("vinay","kumar"),
+
+"concating with delimiter", COMBINEVALUES("/","vinay","kumar"),
+
+"taking a part of string like sub string", mid("vinaykumar",3,4),
+
+"exactly matched or not", exact("vinay","VINAY")
+
+
+)
+)
+
+
+
+/*
+
+DD:14  DDD: Fri   DDDD: Friday  MM:08  MMM: Aug MMMM: August  YY:20  YYYY:2020
+
+*/

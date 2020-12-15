@@ -1,0 +1,25 @@
+﻿--Scenario 1:
+
+EVALUATE
+(
+
+ADDCOLUMNS(
+
+DimCourse,
+
+"Random value", rand(),--Between 0 and 1 any value
+
+"Random between", RANDBETWEEN(200,300) --between 200 and 300 any value
+
+)
+)
+--Scenario 2
+
+EVALUATE
+(
+
+row(
+"Product of duration", product(TEST[EHIKE])
+)
+)
+

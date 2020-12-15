@@ -1,0 +1,25 @@
+﻿/* Create a table called test, keep salary as numeric column, salary_text as
+string column with NULLS, BLANKS and Numeric VALUES
+*/
+
+evaluate
+(
+row
+( 
+	"count_sal",count(TEST[SALARY]),
+	
+	"count_sal_blank",COUNTBLANK(TEST[SALARY]),
+	
+	"count_sal_Text", count(TEST[SALARY_TEXT]),
+	
+	"count_sal_Text_1", counta(TEST[SALARY_TEXT]),
+	
+	"Max value", max(TEST[SALARY_TEXT]),
+	
+	"Max value_1", maxa(TEST[SALARY_TEXT]),
+	
+	"Min value", min(TEST[SALARY_TEXT]),
+	
+	"Min value_1", mina(TEST[SALARY_TEXT])
+)
+)

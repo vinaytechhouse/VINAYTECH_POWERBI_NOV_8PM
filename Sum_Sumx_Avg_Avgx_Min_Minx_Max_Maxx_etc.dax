@@ -1,0 +1,47 @@
+﻿--Sum, Count, Avg, Min, Max etc... calculations on complete column wise.
+--All rows participated
+
+Evaluate
+(
+
+row(
+"Sum of Discount Fee",sum(FactPayments[Discount_Fee]),
+"Average of Discount Fee", Average(FactPayments[Discount_Fee]),
+"Count of Students", count(FactPayments[StudentID]),
+"Max value", max(FactPayments[Discount_Fee]),
+"Min value", min(FactPayments[Discount_Fee])
+)
+)
+----Sumx, Countx, Avgx, Minx, Maxx etc... calculations on specified column values
+--Expression [X-indicate expression] matched column values participated
+
+Evaluate
+(
+
+row(
+"Sum of Discount Fee for Online mode",
+sumx(Filter(FactPayments,FactPayments[ModeID]="Online"),FactPayments[Discount_Fee]),
+"Average of Discount Fee for Online mode", Averagex(Filter(FactPayments,FactPayments[ModeID]="Online"),FactPayments[Discount_Fee]),
+"Count of Students for online", countx(Filter(FactPayments,FactPayments[ModeID]="Online"),FactPayments[Discount_Fee]),
+"Max value in Online mode", maxx(Filter(FactPayments,FactPayments[ModeID]="Online"),FactPayments[Discount_Fee]),
+"Min value in Online mode", minx(Filter(FactPayments,FactPayments[ModeID]="Online"),FactPayments[Discount_Fee])
+)
+)
+
+--SUMX Typical Situations Usage
+--I need for each course the total discount fee generated
+
+Evaluate
+(
+ADDCOLUMNS(DimCourse, 
+"Each course Total",sum(FactPayments[Discount_Fee]),--this sum is total discount fee
+"Each course total 1", SUMX(RELATEDTABLE(FactPayments),FactPayments[Discount_Fee])
+--Related table with join course table with facttable and get all matched rows
+--as a table
+)
+)
+
+/*
+Related and Related table uses existing data model, join the tables when 
+we them.No need to mention join condition and columns
+*/

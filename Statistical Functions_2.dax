@@ -1,0 +1,145 @@
+﻿/*
+sample 5 records by keeping factpayments discount fee in ascending order
+
+1--indicate asc, 0--indicate desc
+
+*/
+EVALUATE
+(
+sample(5,FactPayments,FactPayments[Discount_Fee],0)
+)
+
+/* Creating a table with courseid wise sum, avg of incomes */
+
+EVALUATE
+(
+
+SUMMARIZE
+(
+FactPayments,FactPayments[CourseID],"total",sum(FactPayments[Discount_Fee]),
+"avg", AVERAGE(FactPayments[Discount_Fee])
+)
+)
+
+/* Creating a table with top 2 courseids based on total income descending order*/
+
+EVALUATE
+(
+TOPN(
+2,
+
+SUMMARIZE
+(
+FactPayments,FactPayments[CourseID],"total",sum(FactPayments[Discount_Fee]),
+"avg", AVERAGE(FactPayments[Discount_Fee])
+),
+
+[total],desc
+)
+
+)
+
+/* Creating a table with top 2 courseids based on total income descending order*/
+
+EVALUATE
+(
+TOPN(
+2,
+SUMMARIZE
+(
+FactPayments,FactPayments[CourseID],"total",sum(FactPayments[Discount_Fee]),
+"avg", AVERAGE(FactPayments[Discount_Fee])
+),[total],asc)
+)
+--Create two tables with data emp1 (eid,enm,did), dept1 (did,dnm)
+
+/* CROSSJOIN of two tables */
+
+EVALUATE
+
+(
+CROSSJOIN(EMP1,DEPT1)
+)
+
+
+/* For each location all modes total income */
+
+EVALUATE
+(
+CROSSJOIN
+(
+SUMMARIZE(DimLocation,DimLocation[LocID]),
+
+SUMMARIZE(DimCourseMode,DimCourseMode[ModeID],"Total",sumx(RELATEDTABLE(FactPayments),FactPayments[Discount_Fee])
+
+)
+)
+)
+
+/* Explanation:
+
+1) system create two results first
+
+		a)List of locations one result
+		b) Mode wise total another result
+		
+2) Perform simple cross join between both
+
+Note: Because of this reason we got non business locations also values
+
+
+
+*/
+
+
+/* For each location mode wise total income */
+
+EVALUATE
+(
+GENERATE
+(
+SUMMARIZE(DimLocation,DimLocation[LocID]),
+
+SUMMARIZE(DimCourseMode,DimCourseMode[ModeID],"Total",sumx(RELATEDTABLE(FactPayments),FactPayments[Discount_Fee])
+
+)
+)
+)
+/* Explanation:
+
+system pass each location to second resultset and then gives result
+
+
+Note: Because of this reason we got business locations only values
+
+Simply Cross join precaulates the result sets and perform cross join, whereas each row passes 
+from first result set to second result set and then perform cross join in generate
+
+
+*/
+
+/* Finding rank of each duration value keeping in descending order
+
+Rank:
+		Each value it gives a rank starting with 1
+		Same value it gives same rank
+		There are gaps between ranks
+		
+
+*/
+
+evaluate
+(
+addcolumns(DimCourse,"rank", RANKX(DimCourse,DimCourse[Duration]))
+)
+order by [rank] asc
+
+
+Rank.EQ
+
+--Refer to class room PDF [single pdf]s
+
+
+
+
+

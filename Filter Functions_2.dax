@@ -1,0 +1,71 @@
+﻿evaluate
+(
+
+addcolumns(FactPayments,
+"Course Name",
+Related(DimCourse[Coursename])
+
+)
+)
+/* Here the Facttable and Dimcourse table join considered from the model 
+and gives Coursename
+*/
+
+
+evaluate
+(
+
+addcolumns(FactPayments,
+"Course Name",
+LOOKUPVALUE(DimCourse[Coursename],DimCourse[CourseID],FactPayments[CourseID])
+)
+)
+
+/* Here the Facttable and Dimcourse table joined based on the column
+and gives Coursename. No need of any relationship between them.
+*/
+
+Evaluate
+(
+ADDCOLUMNS(DimCourse,
+"Total Discount fee for each course",
+SUMX(RELATEDTABLE(FactPayments),FactPayments[Discount_Fee])
+)
+
+)
+/*
+Related and Related table require model relationships
+Related will take one value and gives one value, whereas related table passes
+one value and return multiple values.
+
+Related: 1-1
+Related Table: 1-Many
+
+*/
+
+evaluate
+(
+ROW("Total discount fee based on End_Date joining",
+CALCULATE(sum(FactPayments[Discount_Fee]),
+USERELATIONSHIP(FactPayments[Course End_Date],DimDate[Date])),
+
+"Number of Distinct values", countrows(DISTINCT(FactPayments[CourseID])),
+"Count Rows", COUNTROWS(FactPayments)
+
+)
+)
+
+/* It will establish relationship between course_end_date and dimdate and then provide
+result
+
+Distinct will get unique values
+Countrows will find number of rows [will not bother about duplicate / non duplicate]
+
+*/
+
+
+
+
+
+
+

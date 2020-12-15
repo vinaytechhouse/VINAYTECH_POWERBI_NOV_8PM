@@ -1,0 +1,23 @@
+﻿EVALUATE
+(
+	ROW
+	(
+	"Today date",Today(),
+	 "Today date and time", NOW(),
+	 "UK Date", UTCTODAY(),
+	 "UK current date and time", UTCNOW(),
+	 "Year",year(today()),
+	 "month",month(today()),
+	 "Day",day(today()),
+	 "hour",hour(now()),
+	 "minute",minute(now()),
+	 "second", second(now()),
+	 "Adding months", edate(now(),5),
+	 "end of month",eoMONTH(now(),5),
+	 "weekday", weekday(today()),
+	 "yearfrac",YEARFRAC(date(2017,01,01),date(2019,08,02)),
+	 "datediff",DATEDIFF(date(2017,01,01),date(2019,08,03),year),
+	 "timevalue", timevalue("18:37:04"),
+	 "Date value",DATEVALUE("2020-10-05")
+	 )
+)

@@ -1,0 +1,44 @@
+﻿EVALUATE
+(
+
+row(
+"ABsolute value",abs(-99), --a) Negative to positive b) Rounding to the nearest integer
+
+"Nearest even number", EVEN(3), --result: 4
+
+"Nearest Odd number", ODD(2),--result: 3
+
+"Truncating decimal value", trunc(2.82), --result : 2
+
+"Rounding down", rounddown(2.82,1), --result: 2.8
+
+"Rounding up", roundup(2.82,1),--result: 2.9
+
+"General ceiling value", ceiling(2.82,1),--upper integer value Result: 3
+
+"ceiling with significance", ceiling(2.82, .05), --result: 2.85 
+
+"Log value", LOG(20),
+
+"Log 10 value",log10(20),
+
+"log with base value", log(20,10),
+
+"exponentiation value", exp(3),
+
+"Factorial value", Fact(10),
+
+" 2 items combination from 8 items", combin(8,2),
+
+"Divide two valaues", DIVIDE(5,2),  --Result: 2.5
+
+"Mod of two values", MOD(5,2), --Result : 1
+
+"Quotient of values", QUOTIENT(5,2), --Result : 2
+
+"Square root of values", SQRT(16), --result: 4
+
+"Pi value", PI() --result: 3.14
+
+)
+)

@@ -1,0 +1,10 @@
+﻿//Calendar will take two dates and give you a list of dates between them
+EVALUATE
+(
+CALENDAR(date(2017,01,01),date(2018,01,01))
+)
+//Calendar auto will take dates from the model
+EVALUATE
+(
+CALENDARAUTO()
+)

@@ -1,0 +1,26 @@
+﻿evaluate
+(
+addcolumns
+(
+DimCourse,
+
+"and && validation",if(DimCourse[CourseID]="MSBI-F" && DimCourse[Duration]=30,true(),false()),
+
+"or || validation", if(DimCourse[CourseID]="MSBI-F" || DimCourse[Duration]>30,"Proper Duration", "Fast Track"),
+
+"Switch multi condition validation", switch (DimCourse[Duration],20,"Twenty",
+30,"Thirty",40,"Fourty", 50,"Fifty"),
+
+
+"Switch multi condition validation 1", switch (DimCourse[Duration],20,DimCourse[Duration]+10,
+
+30,DimCourse[Duration]+8,40,DimCourse[Duration]+6, 50,DimCourse[Duration]+5),
+
+"If error validation", iferror(25/0, "wrong calculation"),
+
+"Required Courses Fee",
+
+CALCULATE(SUM(FactPayments[Discount_Fee]), DimCourse[CourseID] IN {"MSBI-F","MSBI-N","POWER BI-F"})
+
+)
+)

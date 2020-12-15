@@ -1,0 +1,35 @@
+﻿--Scenario 1 [Nested If and Switch Validation]
+EVALUATE
+(
+
+ADDCOLUMNS(
+
+FactPayments,
+
+"Nested If validation Rating", IF(FactPayments[Tax amount]<200,"low",IF(FactPayments[Tax amount]<250,"medium","high")),
+
+"Nested IF validation increment discount fee",IF(FactPayments[ModeID]="Online",FactPayments[Discount_Fee] *10/100,IF(FactPayments[ModeID]="Classroom",FactPayments[Discount_Fee] * 20/100, FactPayments[Discount_Fee]* 30/100)),
+"Switch validation increment discount fee",
+
+switch(FactPayments[ModeID],"Online",FactPayments[Discount_Fee] *10/100,"Classroom",FactPayments[Discount_Fee] * 20/100,"Customized", FactPayments[Discount_Fee]* 30/100)
+)
+
+)
+
+
+--Scenario 2
+EVALUATE
+(
+FILTER(FactPayments, FactPayments[CourseID] IN {"MSBI-F","MSBI-N"})
+)
+
+--Note:  Select * from FactPayments where CourseID IN ("MSBI-F","MSBI-N")
+
+--Scenario 3
+EVALUATE
+(
+FILTER(FactPayments, FactPayments[StudentID] IN {1003,1006})
+)
+
+--Note:  Select * from FactPayments where StudentID IN (1003,1006)
+--Select * from FactPayments where StudentID =1003 or studentid=1006

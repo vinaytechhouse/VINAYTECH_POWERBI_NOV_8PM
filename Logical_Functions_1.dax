@@ -1,0 +1,14 @@
+﻿EVALUATE
+(
+Row(
+
+"And validation", IF(AND(10 > 9, -10 < -1), "All true", "One or more false"),
+
+"Or validation", IF(OR(10 > 9, -10 < -1), "Any true", "ALL false"),
+
+"TRUE validation", IF(SUM(FactPayments[Discount_Fee]) >200000, TRUE(), FALSE()),
+
+
+"Target reached or not", IF(SUM(FactPayments[Discount_Fee]) >200000, "Target Reached", "Not Reached")
+)
+)

@@ -1,0 +1,35 @@
+﻿--Dates between: Returns the dates between specified dates
+--I want the total discount fee between the dates given
+
+EVALUATE
+(
+
+row (
+"Discount fee between dates", CALCULATE(sum(FactPayments[Discount_Fee]),DATESBETWEEN(DimDate[Date],date(2019,01,01),date(2019,01,20))
+)
+)
+)
+
+--Dates Inperiod: Return dates in the give period
+--I want the total discount fee for the given date interval
+
+EVALUATE
+(
+
+row (
+"Discount fee dates in period", CALCULATE(sum(FactPayments[Discount_Fee]),DATESINPERIOD(DimDate[Date],date(2019,01,01),20,DAY)
+)
+)
+)
+
+/* What is the difference between DateDiff and DatesBetween?
+
+DateDiff gives the difference between dates in numrics
+DatesBetween return set of dates.
+
+*/
+
+
+
+
+

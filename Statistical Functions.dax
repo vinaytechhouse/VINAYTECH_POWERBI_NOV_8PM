@@ -1,0 +1,31 @@
+﻿EVALUATE
+(
+
+ROW(
+
+"DF_Sum", sum(FactPayments[Discount_Fee]),
+
+"DF_Avg", AVERAGE(FactPayments[Discount_Fee]),
+
+"DF_Avg_A", AVERAGEA(FactPayments[Discount_Fee]),
+
+"DF_Count",COUNT(FactPayments[Discount_Fee]),
+
+"DF_Count_A",COUNTA(FactPayments[Discount_Fee]),
+
+"DF_Count_BLANK",COUNTBLANK(FactPayments[Discount_Fee]),
+
+"DF_DistinctCount", DISTINCTCOUNT(FactPayments[Discount_Fee]),
+
+"DF_MaxVal", max(FactPayments[Discount_Fee]),
+
+"DF_MaxVal_A", maxA(FactPayments[Discount_Fee]),
+
+"DF_Minval",min(FactPayments[Discount_Fee]),
+
+"DF_Minval_A",minA(FactPayments[Discount_Fee]),
+
+"DF_Median", MEDIAN(FactPayments[Discount_Fee])
+
+)
+)

@@ -1,0 +1,75 @@
+﻿EVALUATE
+(
+Row
+(
+"2019 Total", CALCULATE(sum(FactPayments[Discount_Fee]), FILTER(DimDate,DimDate[Year]=2019)),
+
+"Hyd Average",CALCULATE(AVERAGE(FactPayments[Discount_Fee]), FILTER(DimLocation,DimLocation[LocID]="HYD")),
+
+"2019 data",sumx(CALCULATETABLE(FactPayments,DimDate[Year]=2019),FactPayments[Discount_Fee]),
+"Number of rows",COUNTROWS(DISTINCT(FactPayments[Discount_Fee]))
+)
+)
+/* Displaying 2017 table data */
+
+evaluate
+(
+CALCULATETABLE(FactPayments,DimDate[Year]=2017)
+)
+
+/* Display courname for each course. Here Related used because of 1-1 / many-1 relationship */
+
+Evaluate
+(
+ADDCOLUMNS(FactPayments,"Course Name",related(DimCourse[Coursename]))
+)
+
+/* Display for each course the total discount fee from fact table. Here related table used for 1-many 
+relationship */
+
+
+
+Evaluate
+(
+ADDCOLUMNS(DimCourse,"Each Couse fee",SUMX(RELATEDTABLE(FactPayments),FactPayments[Discount_Fee]))
+)
+
+/* Using Values */
+
+evaluate
+(
+VALUES(DimCourse[CourseID])
+)
+
+/* Userelatioship usage. It establishes at runtime the relationship */
+
+
+EVALUATE
+(
+
+row(
+"Join date total",
+CALCULATE(sum(FactPayments[Discount_Fee]),USERELATIONSHIP(FactPayments[Join_Date],DimDate[Date])),
+
+"Enquiry Date total",
+CALCULATE(sum(FactPayments[Discount_Fee]),USERELATIONSHIP(FactPayments[Enquiry_Date],DimDate[Date]))
+)
+)
+
+/* Usage of cross filter */
+
+evaluate
+(
+row
+(
+"Distinct courses in 2019", CALCULATE(DISTINCTCOUNT(DimCourse[CourseID]),FILTER(DimDate,DimDate[Date]=2019)),
+"Distinct courses in 2018", CALCULATE(DISTINCTCOUNT(DimCourse[CourseID]),FILTER(DimDate,DimDate[Date]=2018))
+--"Distinct courses in 2019", CALCULATE(DISTINCTCOUNT(DimCourse[CourseID]),FILTER(DimDate,DimDate[Date]=2019)),
+
+)
+)
+
+
+
+
+

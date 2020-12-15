@@ -1,0 +1,16 @@
+﻿EVALUATE
+(
+ADDCOLUMNS(
+DimUsers,
+"Parent Path", path(DimUsers[UserID],DimUsers[ManagerID]),
+
+"Path length", PATHLENGTH(path(DimUsers[UserID],DimUsers[ManagerID])),
+
+"2nd Positioned user left to right",PATHITEM(path(DimUsers[UserID],DimUsers[ManagerID]),2,1),
+
+"2nd positioned item from right to left",PATHITEMREVERSE(path(DimUsers[UserID],DimUsers[ManagerID]),2,1),
+
+"Item available", PATHCONTAINS(path(DimUsers[UserID],DimUsers[ManagerID]),1003)
+)
+
+)

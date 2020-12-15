@@ -1,0 +1,41 @@
+﻿EVALUATE
+(
+Row(
+"Left data",left("vinaykuar",3),
+"right data",right("vinay kumar",3),
+"trimming left and right", trim("    vinay    "),
+"length of text", LEN("vinay kumar"),
+"Code of char", UNICODE("a"),
+"character for code", unichar(65),
+"part of string", mid("vinay kumar", 3,2), --three arguments (text, start position, number of chars)
+"FInding char case sensitive search", find("a","vinaykumar",2),--2nd position onwards "a" will be searched
+"Finding char case insensitive search", search("A","vinay kumar",2),
+"exact match", exact("Raju","RAJU"),
+"exact match 1", exact("Raju","Raju"),
+"Repeat 3 times",rept("raju",3),
+"Repeat 0 5 times",rept(0,5),
+"Replace Text with other one time", replace("vinay kumar",2,3,"ABC"),
+"Replace text multiple times substitute", substitute("vinay kumar","a","A"),
+"combine values with delimiter",COMBINEVALUES(",","vinay","kumar"),
+"concatenate values without delimiter", CONCATENATE("vinay","kumar"),
+"consider string as value",  value("123"),
+"formating date", format(today(),"YYYY MMM/DD"),
+"Formating date1",format(today(),"MMMM DD, YYYY"),
+"upper case data", upper("vinay kumar"),
+"lower case data", lower ("VINAY KUMAR")
+)
+)
+
+/*
+DD-DAY NUMERIC   EX: 18
+DDD-SHORT DAY STRING  EX: MON
+DDDD-FULL DAY STRING    EX: MONDAY
+MM-MONTH NUMERIC  EX: 02
+MMM-MONTH SHORT STRING  EX: JUL
+MMMM-MONTH FULL STRING  EX: JULY
+YY-TWO DIGIT YEAR NUMERIC  EX: 20
+YYYY-FULL YEAR  EX: 2020
+
+
+
+*/
