@@ -1,0 +1,17 @@
+﻿EVALUATE
+(
+Row
+(
+"Is even",iseven(4),
+"Is Odd", isodd(3),
+"Is Number", ISNUMBER(34),
+"Is nontext",ISNONTEXT(35),
+"is nontext 1",ISNONTEXT("vinaytech"),
+"Is Text", Istext("vinaytech"),
+"Is logical", Islogical(True),
+"User Name",username(),--domain name \ userid at desktop,  email id at service level
+"User Principal Name", USERPRINCIPALNAME()
+
+)
+
+)

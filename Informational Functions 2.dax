@@ -1,0 +1,37 @@
+﻿EVALUATE
+(
+ROW
+(
+"Contains",CONTAINS(FactPayments,FactPayments[CourseID],"MSBI-F",FactPayments[ModeID],"Online"),
+
+"Contains 1",CONTAINS(FactPayments,FactPayments[CourseID],"MSBI-M",FactPayments[ModeID],"Online"),
+
+"Lookup", lookupvalue(DimCourse[Coursename],DimCourse[CourseID],"MSBI-N"),
+"Is error", iserror(25/0),
+"Is error 1", iserror(25/5)
+)
+
+)
+
+/* Contains Row Example : Getting ModeIDs if Online and Classroom exists */
+
+EVALUATE
+(
+FILTER(ALL(DimCourseMode[ModeID]), CONTAINSROW({ "Online", "Classroom" }, [ModeID]))
+)
+
+/* Contains row example: Getting location and mode if they match Hyd and Online*/
+
+
+EVALUATE
+(
+
+FILTER(SUMMARIZE(FactPayments, FactPayments[LocationID],FactPayments[ModeID]), 
+CONTAINSROW({ ("HYD", "Online") },
+
+[LocationID], [ModeID]))
+
+)
+
+
+
