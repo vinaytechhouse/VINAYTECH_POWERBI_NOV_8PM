@@ -1,4 +1,4 @@
-﻿--Scenario 1:
+﻿--Scenario 1: Adding two columns to the DimCourse Table with Rand and Randbetween functions
 
 EVALUATE
 (
@@ -13,7 +13,7 @@ DimCourse,
 
 )
 )
---Scenario 2
+--Scenario 2 : Multiplying all values of EHIKE using Product function
 
 EVALUATE
 (
@@ -22,4 +22,29 @@ row(
 "Product of duration", product(TEST[EHIKE])
 )
 )
+
+--
+EVALUATE
+(
+Row
+(
+"Least common multiple", LCM(2,4),
+"Greatest Common Divisor", GCD(2,4),
+"EVen", even(3),
+"Odd",Odd(2),
+"Sum of DF", Sum(FactPayments[Discount_Fee]),
+"Division", Divide(25,5),
+"Division 1", IFERROR(Divide(25,0),99)
+)
+)
+
+
+
+
+
+
+
+
+
+
 

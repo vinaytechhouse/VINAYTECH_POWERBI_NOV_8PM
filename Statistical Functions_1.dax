@@ -1,4 +1,5 @@
-﻿/* Create a table called test, keep salary as numeric column, salary_text as
+﻿/* Create a table called test(eid integer, salary numeric, salary_text varchar(30)), 
+keep salary as numeric column, salary_text as
 string column with NULLS, BLANKS and Numeric VALUES
 */
 

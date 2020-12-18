@@ -140,6 +140,37 @@ Rank.EQ
 --Refer to class room PDF [single pdf]s
 
 
+--Syntax: Create a table 'EMP'
+Evaluate
+(
+
+DATATABLE("EID",INTEGER,"ENM",STRING,{{1,"X"},{2,"Y"}})
+)
+
+
+--Syntax: Create a table 'DEPT'
+Evaluate
+(
+
+DATATABLE("EID",INTEGER,"ENM",STRING,{{1,"X"},{2,"Y"}})
+)
+
+
+Evaluate
+(
+crossjoin(emp1,dept1)
+)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
