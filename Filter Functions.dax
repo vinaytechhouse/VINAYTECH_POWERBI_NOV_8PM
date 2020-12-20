@@ -1,4 +1,6 @@
-﻿EVALUATE
+﻿/* The below describes Calcualte and SUMX differences, and also explain how Filter is used */
+
+EVALUATE
 (
 Row
 (
@@ -7,10 +9,12 @@ Row
 "Hyd Average",CALCULATE(AVERAGE(FactPayments[Discount_Fee]), FILTER(DimLocation,DimLocation[LocID]="HYD")),
 
 "2019 data",sumx(CALCULATETABLE(FactPayments,DimDate[Year]=2019),FactPayments[Discount_Fee]),
+
+
 "Number of rows",COUNTROWS(DISTINCT(FactPayments[Discount_Fee]))
 )
 )
-/* Displaying 2017 table data */
+/* Displaying 2017 table data. The below functions uses dataset model condition. */
 
 evaluate
 (
